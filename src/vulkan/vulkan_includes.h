@@ -1,0 +1,495 @@
+#ifndef VULKAN_INCLUDES_H
+#define VULKAN_INCLUDES_H
+
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#define VK_USE_PLATFORM_WIN32_KHR
+
+#define VK_NO_PROTOTYPES
+
+#include <vulkan/vulkan.h>
+
+#include "util/defines.h"
+
+void loadInstance();
+void loadVulkanInstanceFunctions(VkInstance instance);
+void loadVulkanDeviceFunctions(VkDevice device);
+
+extern PFN_vkAcquireNextImageKHR vkAcquireNextImageKHR;
+extern PFN_vkAllocateCommandBuffers vkAllocateCommandBuffers;
+extern PFN_vkAllocateDescriptorSets vkAllocateDescriptorSets;
+extern PFN_vkAllocateMemory vkAllocateMemory;
+extern PFN_vkBeginCommandBuffer vkBeginCommandBuffer;
+extern PFN_vkBindBufferMemory2 vkBindBufferMemory2;
+extern PFN_vkBindImageMemory2 vkBindImageMemory2;
+extern PFN_vkCmdBeginRenderPass2 vkCmdBeginRenderPass2;
+extern PFN_vkCmdBeginQuery vkCmdBeginQuery;
+extern PFN_vkCmdBindDescriptorSets vkCmdBindDescriptorSets;
+extern PFN_vkCmdBindPipeline vkCmdBindPipeline;
+extern PFN_vkCmdBindVertexBuffers vkCmdBindVertexBuffers;
+extern PFN_vkCmdBlitImage2KHR vkCmdBlitImage2KHR;
+extern PFN_vkCmdCopyBuffer2KHR vkCmdCopyBuffer2KHR;
+extern PFN_vkCmdCopyBufferToImage2KHR vkCmdCopyBufferToImage2KHR;
+extern PFN_vkCmdCopyImage2KHR vkCmdCopyImage2KHR;
+extern PFN_vkCmdCopyImageToBuffer2KHR vkCmdCopyImageToBuffer2KHR;
+extern PFN_vkCmdDispatch vkCmdDispatch;
+extern PFN_vkCmdDispatchIndirect vkCmdDispatchIndirect;
+extern PFN_vkCmdDraw vkCmdDraw;
+extern PFN_vkCmdDrawIndirect vkCmdDrawIndirect;
+extern PFN_vkCmdEndRenderPass2 vkCmdEndRenderPass2;
+extern PFN_vkCmdEndQuery vkCmdEndQuery;
+extern PFN_vkCmdExecuteCommands vkCmdExecuteCommands;
+extern PFN_vkCmdNextSubpass2 vkCmdNextSubpass2;
+extern PFN_vkCmdPipelineBarrier2KHR vkCmdPipelineBarrier2KHR;
+extern PFN_vkCmdPushConstants vkCmdPushConstants;
+extern PFN_vkCmdPushDescriptorSetKHR vkCmdPushDescriptorSetKHR;
+extern PFN_vkCmdPushDescriptorSetWithTemplateKHR vkCmdPushDescriptorSetWithTemplateKHR;
+extern PFN_vkCmdSetViewport vkCmdSetViewport;
+extern PFN_vkCreateBuffer vkCreateBuffer;
+extern PFN_vkCreateCommandPool vkCreateCommandPool;
+extern PFN_vkCreateComputePipelines vkCreateComputePipelines;
+extern PFN_vkCreateDebugUtilsMessengerEXT vkCreateDebugUtilsMessengerEXT;
+extern PFN_vkCreateDescriptorPool vkCreateDescriptorPool;
+extern PFN_vkCreateDescriptorSetLayout vkCreateDescriptorSetLayout;
+extern PFN_vkCreateDescriptorUpdateTemplate vkCreateDescriptorUpdateTemplate;
+extern PFN_vkCreateDevice vkCreateDevice;
+extern PFN_vkCreateFence vkCreateFence;
+extern PFN_vkCreateFramebuffer vkCreateFramebuffer;
+extern PFN_vkCreateGraphicsPipelines vkCreateGraphicsPipelines;
+extern PFN_vkCreateImage vkCreateImage;
+extern PFN_vkCreateImageView vkCreateImageView;
+extern PFN_vkCreateInstance vkCreateInstance;
+extern PFN_vkCreatePipelineCache vkCreatePipelineCache;
+extern PFN_vkCreatePipelineLayout vkCreatePipelineLayout;
+extern PFN_vkCreateQueryPool vkCreateQueryPool;
+extern PFN_vkCreateRenderPass2 vkCreateRenderPass2;
+extern PFN_vkCreateSampler vkCreateSampler;
+extern PFN_vkCreateSemaphore vkCreateSemaphore;
+extern PFN_vkCreateShaderModule vkCreateShaderModule;
+extern PFN_vkCreateSwapchainKHR vkCreateSwapchainKHR;
+extern PFN_vkCreateValidationCacheEXT vkCreateValidationCacheEXT;
+extern PFN_vkCreateWin32SurfaceKHR vkCreateWin32SurfaceKHR;
+extern PFN_vkDestroyBuffer vkDestroyBuffer;
+extern PFN_vkDestroyCommandPool vkDestroyCommandPool;
+extern PFN_vkDestroyDebugUtilsMessengerEXT vkDestroyDebugUtilsMessengerEXT;
+extern PFN_vkDestroyDescriptorPool vkDestroyDescriptorPool;
+extern PFN_vkDestroyDescriptorSetLayout vkDestroyDescriptorSetLayout;
+extern PFN_vkDestroyDescriptorUpdateTemplate vkDestroyDescriptorUpdateTemplate;
+extern PFN_vkDestroyDevice vkDestroyDevice;
+extern PFN_vkDestroyFence vkDestroyFence;
+extern PFN_vkDestroyFramebuffer vkDestroyFramebuffer;
+extern PFN_vkDestroyImage vkDestroyImage;
+extern PFN_vkDestroyImageView vkDestroyImageView;
+extern PFN_vkDestroyInstance vkDestroyInstance;
+extern PFN_vkDestroyPipeline vkDestroyPipeline;
+extern PFN_vkDestroyPipelineCache vkDestroyPipelineCache;
+extern PFN_vkDestroyPipelineLayout vkDestroyPipelineLayout;
+extern PFN_vkDestroyQueryPool vkDestroyQueryPool;
+extern PFN_vkDestroyRenderPass vkDestroyRenderPass;
+extern PFN_vkDestroySampler vkDestroySampler;
+extern PFN_vkDestroySemaphore vkDestroySemaphore;
+extern PFN_vkDestroyShaderModule vkDestroyShaderModule;
+extern PFN_vkDestroySurfaceKHR vkDestroySurfaceKHR;
+extern PFN_vkDestroySwapchainKHR vkDestroySwapchainKHR;
+extern PFN_vkDestroyValidationCacheEXT vkDestroyValidationCacheEXT;
+extern PFN_vkDeviceWaitIdle vkDeviceWaitIdle;
+extern PFN_vkEndCommandBuffer vkEndCommandBuffer;
+extern PFN_vkEnumerateDeviceExtensionProperties vkEnumerateDeviceExtensionProperties;
+extern PFN_vkEnumerateDeviceLayerProperties vkEnumerateDeviceLayerProperties;
+extern PFN_vkEnumerateInstanceExtensionProperties vkEnumerateInstanceExtensionProperties;
+extern PFN_vkEnumerateInstanceLayerProperties vkEnumerateInstanceLayerProperties;
+extern PFN_vkEnumerateInstanceVersion vkEnumerateInstanceVersion;
+extern PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
+extern PFN_vkFreeCommandBuffers vkFreeCommandBuffers;
+extern PFN_vkFreeDescriptorSets vkFreeDescriptorSets;
+extern PFN_vkFreeMemory vkFreeMemory;
+extern PFN_vkGetBufferDeviceAddress vkGetBufferDeviceAddress;
+extern PFN_vkGetBufferMemoryRequirements2 vkGetBufferMemoryRequirements2;
+extern PFN_vkGetDeviceMemoryCommitment vkGetDeviceMemoryCommitment;
+extern PFN_vkGetDeviceProcAddr vkGetDeviceProcAddr;
+extern PFN_vkGetDeviceQueue2 vkGetDeviceQueue2;
+extern PFN_vkGetImageMemoryRequirements2 vkGetImageMemoryRequirements2;
+extern PFN_vkGetInstanceProcAddr vkGetInstanceProcAddr;
+extern PFN_vkGetPhysicalDeviceFeatures2 vkGetPhysicalDeviceFeatures2;
+extern PFN_vkGetPhysicalDeviceFormatProperties2 vkGetPhysicalDeviceFormatProperties2;
+extern PFN_vkGetPhysicalDeviceImageFormatProperties2 vkGetPhysicalDeviceImageFormatProperties2;
+extern PFN_vkGetPhysicalDeviceMemoryProperties2 vkGetPhysicalDeviceMemoryProperties2;
+extern PFN_vkGetPhysicalDeviceProperties2 vkGetPhysicalDeviceProperties2;
+extern PFN_vkGetPhysicalDeviceQueueFamilyProperties2 vkGetPhysicalDeviceQueueFamilyProperties2;
+extern PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR vkGetPhysicalDeviceSurfaceCapabilitiesKHR;
+extern PFN_vkGetPhysicalDeviceSurfaceFormatsKHR vkGetPhysicalDeviceSurfaceFormatsKHR;
+extern PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT vkGetPhysicalDeviceSurfacePresentModes2EXT;
+extern PFN_vkGetPhysicalDeviceSurfaceSupportKHR vkGetPhysicalDeviceSurfaceSupportKHR;
+extern PFN_vkGetPipelineCacheData vkGetPipelineCacheData;
+extern PFN_vkGetSemaphoreCounterValue vkGetSemaphoreCounterValue;
+extern PFN_vkGetSwapchainImagesKHR vkGetSwapchainImagesKHR;
+extern PFN_vkGetValidationCacheDataEXT vkGetValidationCacheDataEXT;
+extern PFN_vkMapMemory vkMapMemory;
+extern PFN_vkQueuePresentKHR vkQueuePresentKHR;
+extern PFN_vkQueueSubmit vkQueueSubmit;
+extern PFN_vkQueueWaitIdle vkQueueWaitIdle;
+extern PFN_vkResetCommandBuffer vkResetCommandBuffer;
+extern PFN_vkResetCommandPool vkResetCommandPool;
+extern PFN_vkResetDescriptorPool vkResetDescriptorPool;
+extern PFN_vkResetEvent vkResetEvent;
+extern PFN_vkResetFences vkResetFences;
+extern PFN_vkSignalSemaphore vkSignalSemaphore;
+extern PFN_vkUnmapMemory vkUnmapMemory;
+extern PFN_vkUpdateDescriptorSetWithTemplate vkUpdateDescriptorSetWithTemplate;
+extern PFN_vkUpdateDescriptorSets vkUpdateDescriptorSets;
+extern PFN_vkWaitForFences vkWaitForFences;
+extern PFN_vkWaitSemaphores vkWaitSemaphores;
+
+#endif // VULKAN_INCLUDES_H
+
+/*// vkAcquireFullScreenExclusiveModeEXT
+// vkAcquireNextImage2KHR
+// vkAcquirePerformanceConfigurationINTEL
+// vkAcquireProfilingLockKHR
+// vkAcquireXlibDisplayEXT
+// vkBindAccelerationStructureMemoryNV
+// vkBindBufferMemory
+// vkBindImageMemory
+// vkCmdBeginConditionalRenderingEXT
+// vkCmdBeginDebugUtilsLabelEXT
+// vkCmdBeginQuery
+// vkCmdBeginQueryIndexedEXT
+// vkCmdBeginRenderPass
+// vkCmdBeginTransformFeedbackEXT
+// vkCmdBindIndexBuffer
+// vkCmdBindShadingRateImageNV
+// vkCmdBindTransformFeedbackBuffersEXT
+// vkCmdBuildAccelerationStructureNV
+// vkCmdClearAttachments
+// vkCmdClearColorImage
+// vkCmdClearDepthStencilImage
+// vkCmdCopyAccelerationStructureNV
+// vkCmdCopyQueryPoolResults
+// vkCmdDebugMarkerBeginEXT
+// vkCmdDebugMarkerEndEXT
+// vkCmdDebugMarkerInsertEXT
+// vkCmdDispatch
+// vkCmdDispatchBase
+// vkCmdDraw
+// vkCmdDrawIndexed
+// vkCmdDrawIndexedIndirect
+// vkCmdDrawIndexedIndirectCount
+// vkCmdDrawIndirectByteCountEXT
+// vkCmdDrawIndirectCount
+// vkCmdDrawMeshTasksIndirectCountNV
+// vkCmdDrawMeshTasksIndirectNV
+// vkCmdDrawMeshTasksNV
+// vkCmdEndConditionalRenderingEXT
+// vkCmdEndDebugUtilsLabelEXT
+// vkCmdEndQuery
+// vkCmdEndQueryIndexedEXT
+// vkCmdEndRenderPass
+// vkCmdEndTransformFeedbackEXT
+// vkCmdFillBuffer
+// vkCmdInsertDebugUtilsLabelEXT
+// vkCmdNextSubpass
+// vkCmdPipelineBarrier
+// vkCmdProcessCommandsNVX
+// vkCmdReserveSpaceForCommandsNVX
+// vkCmdResetEvent
+// vkCmdResetQueryPool
+// vkCmdResolveImage
+// vkCmdSetBlendConstants
+// vkCmdSetCheckpointNV
+// vkCmdSetCoarseSampleOrderNV
+// vkCmdSetDepthBias
+// vkCmdSetDepthBounds
+// vkCmdSetDeviceMask
+// vkCmdSetDiscardRectangleEXT
+// vkCmdSetEvent
+// vkCmdSetExclusiveScissorNV
+// vkCmdSetLineStippleEXT
+// vkCmdSetLineWidth
+// vkCmdSetPerformanceMarkerINTEL
+// vkCmdSetPerformanceOverrideINTEL
+// vkCmdSetPerformanceStreamMarkerINTEL
+// vkCmdSetSampleLocationsEXT
+// vkCmdSetScissor
+// vkCmdSetStencilCompareMask
+// vkCmdSetStencilReference
+// vkCmdSetStencilWriteMask
+// vkCmdSetViewportShadingRatePaletteNV
+// vkCmdSetViewportWScalingNV
+// vkCmdTraceRaysNV
+// vkCmdUpdateBuffer
+// vkCmdWaitEvents
+// vkCmdWriteAccelerationStructuresPropertiesNV
+// vkCmdWriteBufferMarkerAMD
+// vkCmdWriteTimestamp
+// vkCompileDeferredNV
+// vkCreateAccelerationStructureNV
+// vkCreateAndroidSurfaceKHR
+// vkCreateBufferView
+// vkCreateDebugReportCallbackEXT
+// vkCreateDisplayModeKHR
+// vkCreateDisplayPlaneSurfaceKHR
+// vkCreateEvent
+// vkCreateHeadlessSurfaceEXT
+// vkCreateIOSSurfaceMVK
+// vkCreateImagePipeSurfaceFUCHSIA
+// vkCreateIndirectCommandsLayoutNVX
+// vkCreateMacOSSurfaceMVK
+// vkCreateMetalSurfaceEXT
+// vkCreateObjectTableNVX
+// vkCreateQueryPool
+// vkCreateRayTracingPipelinesNV
+// vkCreateRenderPass
+// vkCreateSamplerYcbcrConversion
+// vkCreateSharedSwapchainsKHR
+// vkCreateStreamDescriptorSurfaceGGP
+// vkCreateViSurfaceNN
+// vkCreateWaylandSurfaceKHR
+// vkCreateXcbSurfaceKHR
+// vkCreateXlibSurfaceKHR
+// vkDebugMarkerSetObjectNameEXT
+// vkDebugMarkerSetObjectTagEXT
+// vkDebugReportMessageEXT
+// vkDestroyAccelerationStructureNV
+// vkDestroyBufferView
+// vkDestroyDebugReportCallbackEXT
+// vkDestroyEvent
+// vkDestroyIndirectCommandsLayoutNVX
+// vkDestroyObjectTableNVX
+// vkDestroyQueryPool
+// vkDestroySamplerYcbcrConversion
+// vkDisplayPowerControlEXT
+// vkEnumeratePhysicalDeviceGroups
+// vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
+// vkFlushMappedMemoryRanges
+// vkGetAccelerationStructureHandleNV
+// vkGetAccelerationStructureMemoryRequirementsNV
+// vkGetAndroidHardwareBufferPropertiesANDROID
+// vkGetBufferMemoryRequirements
+// vkGetBufferOpaqueCaptureAddress
+// vkGetCalibratedTimestampsEXT
+// vkGetDescriptorSetLayoutSupport
+// vkGetDeviceGroupPeerMemoryFeatures
+// vkGetDeviceGroupPresentCapabilitiesKHR
+// vkGetDeviceGroupSurfacePresentModes2EXT
+// vkGetDeviceGroupSurfacePresentModesKHR
+// vkGetDeviceMemoryOpaqueCaptureAddress
+// vkGetDeviceQueue
+// vkGetDisplayModeProperties2KHR
+// vkGetDisplayModePropertiesKHR
+// vkGetDisplayPlaneCapabilities2KHR
+// vkGetDisplayPlaneCapabilitiesKHR
+// vkGetDisplayPlaneSupportedDisplaysKHR
+// vkGetEventStatus
+// vkGetFenceFdKHR
+// vkGetFenceStatus
+// vkGetFenceWin32HandleKHR
+// vkGetImageDrmFormatModifierPropertiesEXT
+// vkGetImageMemoryRequirements
+// vkGetImageSparseMemoryRequirements
+// vkGetImageSparseMemoryRequirements2
+// vkGetImageSubresourceLayout
+// vkGetImageViewHandleNVX
+// vkGetMemoryAndroidHardwareBufferANDROID
+// vkGetMemoryFdKHR
+// vkGetMemoryFdPropertiesKHR
+// vkGetMemoryHostPointerPropertiesEXT
+// vkGetMemoryWin32HandleKHR
+// vkGetMemoryWin32HandleNV
+// vkGetMemoryWin32HandlePropertiesKHR
+// vkGetPastPresentationTimingGOOGLE
+// vkGetPerformanceParameterINTEL
+// vkGetPhysicalDeviceCalibrateableTimeDomainsEXT
+// vkGetPhysicalDeviceCooperativeMatrixPropertiesNV
+// vkGetPhysicalDeviceDisplayPlaneProperties2KHR
+// vkGetPhysicalDeviceDisplayPlanePropertiesKHR
+// vkGetPhysicalDeviceDisplayProperties2KHR
+// vkGetPhysicalDeviceDisplayPropertiesKHR
+// vkGetPhysicalDeviceExternalBufferProperties
+// vkGetPhysicalDeviceExternalFenceProperties
+// vkGetPhysicalDeviceExternalImageFormatPropertiesNV
+// vkGetPhysicalDeviceExternalSemaphoreProperties
+// vkGetPhysicalDeviceFeatures
+// vkGetPhysicalDeviceFormatProperties
+// vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX
+// vkGetPhysicalDeviceImageFormatProperties
+// vkGetPhysicalDeviceMemoryProperties
+// vkGetPhysicalDeviceMultisamplePropertiesEXT
+// vkGetPhysicalDevicePresentRectanglesKHR
+// vkGetPhysicalDeviceProperties
+// vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR
+// vkGetPhysicalDeviceQueueFamilyProperties
+// vkGetPhysicalDeviceSparseImageFormatProperties
+// vkGetPhysicalDeviceSparseImageFormatProperties2
+// vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
+// vkGetPhysicalDeviceSurfaceCapabilities2EXT
+// vkGetPhysicalDeviceSurfaceCapabilitiesKHR
+// vkGetPhysicalDeviceSurfaceFormats2KHR
+// vkGetPhysicalDeviceSurfacePresentModesKHR
+// vkGetPhysicalDeviceToolPropertiesEXT
+// vkGetPhysicalDeviceWaylandPresentationSupportKHR
+// vkGetPhysicalDeviceWin32PresentationSupportKHR
+// vkGetPhysicalDeviceXcbPresentationSupportKHR
+// vkGetPhysicalDeviceXlibPresentationSupportKHR
+// vkGetPipelineExecutableInternalRepresentationsKHR
+// vkGetPipelineExecutablePropertiesKHR
+// vkGetPipelineExecutableStatisticsKHR
+// vkGetQueryPoolResults
+// vkGetQueueCheckpointDataNV
+// vkGetRandROutputDisplayEXT
+// vkGetRayTracingShaderGroupHandlesNV
+// vkGetRefreshCycleDurationGOOGLE
+// vkGetRenderAreaGranularity
+// vkGetSemaphoreFdKHR
+// vkGetSemaphoreWin32HandleKHR
+// vkGetShaderInfoAMD
+// vkGetSwapchainCounterEXT
+// vkGetSwapchainStatusKHR
+// vkImportFenceFdKHR
+// vkImportFenceWin32HandleKHR
+// vkImportSemaphoreFdKHR
+// vkImportSemaphoreWin32HandleKHR
+// vkInitializePerformanceApiINTEL
+// vkInvalidateMappedMemoryRanges
+// vkMergePipelineCaches
+// vkMergeValidationCachesEXT
+// vkQueueBeginDebugUtilsLabelEXT
+// vkQueueBindSparse
+// vkQueueEndDebugUtilsLabelEXT
+// vkQueueInsertDebugUtilsLabelEXT
+// vkQueueSetPerformanceConfigurationINTEL
+// vkRegisterDeviceEventEXT
+// vkRegisterDisplayEventEXT
+// vkRegisterObjectsNVX
+// vkReleaseDisplayEXT
+// vkReleaseFullScreenExclusiveModeEXT
+// vkReleasePerformanceConfigurationINTEL
+// vkReleaseProfilingLockKHR
+// vkResetQueryPool
+// vkSetDebugUtilsObjectNameEXT
+// vkSetDebugUtilsObjectTagEXT
+// vkSetEvent
+// vkSetHdrMetadataEXT
+// vkSetLocalDimmingAMD
+// vkSubmitDebugUtilsMessageEXT
+// vkTrimCommandPool
+// vkUninitializePerformanceApiINTEL
+// vkUnregisterObjectsNVX
+
+vkAcquireNextImageKHR
+vkAllocateCommandBuffers
+vkAllocateDescriptorSets
+vkAllocateMemory
+vkBeginCommandBuffer
+vkBindBufferMemory2
+vkBindImageMemory2
+vkCmdBeginRenderPass2KHR
+vkCmdBindDescriptorSets
+vkCmdBindPipeline
+vkCmdBindVertexBuffers
+vkCmdBlitImage
+vkCmdCopyBuffer
+vkCmdCopyBufferToImage
+vkCmdCopyImage
+vkCmdCopyImageToBuffer
+vkCmdDispatchIndirect
+vkCmdDrawIndirect
+vkCmdEndRenderPass2KHR
+vkCmdExecuteCommands
+vkCmdNextSubpass2
+vkCmdPipelineBarrier
+vkCmdPipelineBarrier2KHR
+vkCmdPushConstants
+vkCmdPushDescriptorSetKHR
+vkCmdPushDescriptorSetWithTemplateKHR
+vkCmdSetViewport
+vkCreateBuffer
+vkCreateCommandPool
+vkCreateComputePipelines
+vkCreateDebugUtilsMessengerEXT
+vkCreateDescriptorPool
+vkCreateDescriptorSetLayout
+vkCreateDescriptorUpdateTemplate
+vkCreateDevice
+vkCreateFence
+vkCreateFramebuffer
+vkCreateGraphicsPipelines
+vkCreateImage
+vkCreateImageView
+vkCreateInstance
+vkCreatePipelineCache
+vkCreatePipelineLayout
+vkCreateRenderPass2KHR
+vkCreateSampler
+vkCreateSemaphore
+vkCreateShaderModule
+vkCreateSwapchainKHR
+vkCreateValidationCacheEXT
+vkCreateWin32SurfaceKHR
+vkDestroyBuffer
+vkDestroyCommandPool
+vkDestroyDebugUtilsMessengerEXT
+vkDestroyDescriptorPool
+vkDestroyDescriptorSetLayout
+vkDestroyDescriptorUpdateTemplate
+vkDestroyDevice
+vkDestroyFence
+vkDestroyFramebuffer
+vkDestroyImage
+vkDestroyImageView
+vkDestroyInstance
+vkDestroyPipeline
+vkDestroyPipelineCache
+vkDestroyPipelineLayout
+vkDestroyRenderPass
+vkDestroySampler
+vkDestroySemaphore
+vkDestroyShaderModule
+vkDestroySurfaceKHR
+vkDestroySwapchainKHR
+vkDestroyValidationCacheEXT
+vkDeviceWaitIdle
+vkEndCommandBuffer
+vkEnumerateDeviceExtensionProperties
+vkEnumerateDeviceLayerProperties
+vkEnumerateInstanceExtensionProperties
+vkEnumerateInstanceLayerProperties
+vkEnumerateInstanceVersion
+vkEnumeratePhysicalDevices
+vkFreeCommandBuffers
+vkFreeDescriptorSets
+vkFreeMemory
+vkGetBufferDeviceAddress
+vkGetBufferMemoryRequirements2
+vkGetDeviceMemoryCommitment
+vkGetDeviceProcAddr
+vkGetDeviceQueue2
+vkGetImageMemoryRequirements2
+vkGetInstanceProcAddr
+vkGetPhysicalDeviceFeatures2
+vkGetPhysicalDeviceFormatProperties2
+vkGetPhysicalDeviceImageFormatProperties2
+vkGetPhysicalDeviceMemoryProperties2
+vkGetPhysicalDeviceProperties2
+vkGetPhysicalDeviceQueueFamilyProperties2
+vkGetPhysicalDeviceSurfaceCapabilities2KHR
+vkGetPhysicalDeviceSurfaceFormatsKHR
+vkGetPhysicalDeviceSurfacePresentModes2EXT
+vkGetPhysicalDeviceSurfaceSupportKHR
+vkGetPipelineCacheData
+vkGetSwapchainImagesKHR
+vkGetValidationCacheDataEXT
+vkMapMemory
+vkQueuePresentKHR
+vkQueueSubmit
+vkQueueWaitIdle
+vkResetCommandBuffer
+vkResetCommandPool
+vkResetDescriptorPool
+vkResetEvent
+vkResetFences
+vkSignalSemaphore
+vkUnmapMemory
+vkUpdateDescriptorSetWithTemplate
+vkUpdateDescriptorSets
+vkWaitForFences
+vkWaitSemaphores*/

@@ -1,0 +1,93 @@
+#version 460 core
+
+#define MAX_PARTICLE_OBJECTS 256
+#define LOCAL_SIZE_X 1
+#define LOCAL_SIZE_Y 1
+#define LOCAL_SIZE_Z 1
+
+layout(constant_id = 0) const int SPECIALIZATION = 0;
+
+layout(local_size_x = LOCAL_SIZE_X, local_size_y = LOCAL_SIZE_Y, local_size_z = LOCAL_SIZE_Z) in;
+
+struct Particle {
+	float x;
+	float y;
+	float z;
+	float alive;
+	float vx;
+	float vy;
+	float vz;
+	float life;
+};
+
+layout(std430, binding = 0, set = 0) restrict readonly buffer readBuffer {
+	Particle readParticles[MAX_PARTICLE_OBJECTS];
+};
+
+layout(std430, binding = 1, set = 0) restrict writeonly buffer writeBuffer {
+	Particle writeParticles[MAX_PARTICLE_OBJECTS];
+};
+
+layout(std430, binding = 2, set = 0) restrict readonly buffer emitter {
+	uint readOffset;
+	uint writeOffset;
+	float startPosX;
+	float startPosY;
+	float startPosZ;
+	float endPosX;
+	float endPosY;
+	float endPosZ;
+	float startVelX;
+	float startVelY;
+	float startVelZ;
+	float endVelX;
+	float endVelY;
+	float endVelZ;
+	float delta;
+	float startLife;
+	float endLife;
+};
+
+float rand(float cox, float coy) {
+    return fract(sin(dot(vec2(cox, coy), vec2(12.9898f, 78.233f))) * 43758.5453123f);
+}
+
+void init(uint writeId, float r, bool init) {
+	writeParticles[writeId].x = startPosX + (endPosX - startPosX) * rand(float(writeId + 11) * r, float(writeId + 1) * r);
+	writeParticles[writeId].y = startPosY + (endPosY - startPosY) * rand(float(writeId + 12) * r, float(writeId + 2) * r);
+	writeParticles[writeId].z = startPosZ + (endPosZ - startPosZ) * rand(float(writeId + 13) * r, float(writeId + 3) * r);
+	writeParticles[writeId].vx = startVelX + (endVelX - startVelX) * rand(float(writeId + 14) * r, float(writeId + 4) * r);
+	writeParticles[writeId].vy = startVelY + (endVelY - startVelY) * rand(float(writeId + 15) * r, float(writeId + 5) * r);
+	writeParticles[writeId].vz = startVelZ + (endVelZ - startVelZ) * rand(float(writeId + 16) * r, float(writeId + 6) * r);
+	if (init) {
+		writeParticles[writeId].life = startLife * rand(float(writeId + 17 * writeId) * r, float(writeId + 7 * writeId) * r);
+		writeParticles[writeId].alive = 0.0f;
+	} else {
+		writeParticles[writeId].life = startLife + (endLife - startLife) * rand(float(writeId + 17) * r, float(writeId + 7) * r);
+		writeParticles[writeId].alive = 1.0f;
+	}
+}
+
+void main() {
+	const uint id = gl_GlobalInvocationID.z * gl_NumWorkGroups.x * LOCAL_SIZE_X *
+					gl_NumWorkGroups.y * LOCAL_SIZE_Y +
+					gl_GlobalInvocationID.y * gl_NumWorkGroups.x * LOCAL_SIZE_X + 
+					gl_GlobalInvocationID.x;
+	uint readId = id + readOffset;
+	uint writeId = id + writeOffset;
+	
+	if (SPECIALIZATION == 0) {
+		init(writeId, 1.0f, true);
+	} else if (readParticles[readId].life < 0.0f) {
+		init(writeId, readParticles[readId].life, false);
+	} else {
+		writeParticles[writeId].x = readParticles[readId].x + readParticles[readId].vx * delta;
+		writeParticles[writeId].y = readParticles[readId].y + readParticles[readId].vy * delta;
+		writeParticles[writeId].z = readParticles[readId].z + readParticles[readId].vz * delta;
+		writeParticles[writeId].life = readParticles[readId].life - delta * 1000.0f;
+		writeParticles[writeId].vx = readParticles[readId].vx;
+		writeParticles[writeId].vy = readParticles[readId].vy;
+		writeParticles[writeId].vz = readParticles[readId].vz;
+	}
+}
+ 

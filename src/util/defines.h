@@ -1,0 +1,43 @@
+#ifndef DEFINES_H
+#define DEFINES_H
+
+// Compile flags
+#define USE_VALIDATION_LAYERS
+#define VULKAN_PRINT_INFO
+#define MEMORY_CHECKS
+//#define DISABLE_THREADS
+#define EDITOR
+#define USE_SIMD
+
+// Macros
+#define ARRAY_SIZE(x) sizeof(x) / sizeof(x[0])
+
+// Defines
+#define THREAD_COUNT 2
+#define IMAGE_COUNT 3
+
+#define GRAPHICS_INDEX 0
+#define COMPUTE_INDEX 1
+#define TRANSFER_INDEX 2
+#define QUEUE_COUNT 3
+
+// Sizes
+#define WINDOW_MARGIN 100
+
+#define QUERY_BUFFER_SIZE 64 * 1024
+#define STAGING_BUFFER_SIZE 4 * 1024 * 1024
+#define HOST_BUFFER_ALLOCATION_SIZE 32 * 1024 * 1024
+#define DEVICE_BUFFER_ALLOCATION_SIZE 32 * 1024 * 1024
+#define TEXTURE_MEMORY_ALLOCATION_SIZE 64 * 1024 * 1024
+
+#define MAX_TEXTURES 64
+
+// Settings
+#define MOVEMENT_SPEED 0.3f
+#define MOUSE_SPEED 0.17f
+
+#define MIN_CAMERA_Z 15.0f
+#define MAX_CAMERA_Z 150.0f
+#define CAMERA_SCROLL_MODIFIER 0.01f
+
+#endif // DEFINES_H
